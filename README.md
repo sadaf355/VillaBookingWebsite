@@ -79,7 +79,7 @@ Initializing database schema...
 Database tables verified/created successfully.
 ```
 
-Open `http://localhost:3000` in your web browser to view the application.
+Open `http://localhost:3000` in your web browser to view the application. 
 
 ---
 
