@@ -1,0 +1,501 @@
+/* =========================================
+   AUTH MODAL – Login & Register
+   Saboo's Retreat – compact, form-sized
+   ========================================= */
+
+/* Overlay backdrop */
+.auth-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 19000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 1rem;
+}
+
+.auth-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal card – same compact width as the old loginform (~30rem) */
+.auth-modal {
+    background: #fff;
+    border-radius: 0.5rem;
+    width: 100%;
+    max-width: 720px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.3s ease;
+    position: relative;
+    scrollbar-width: none;
+}
+
+.auth-modal::-webkit-scrollbar { display: none; }
+
+.auth-overlay.active .auth-modal {
+    transform: translateY(0) scale(1);
+}
+
+/* Top accent strip */
+.auth-modal-accent {
+    height: 4px;
+    background: linear-gradient(90deg, #033940, #1bcbe2);
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+/* Close button */
+.auth-close {
+    position: absolute;
+    top: 0.8rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease, transform 0.2s ease;
+    z-index: 2;
+}
+
+.auth-close:hover {
+    color: #033940;
+    transform: rotate(90deg);
+}
+
+/* Panel wrapper */
+.auth-panels {
+    position: relative;
+    overflow: hidden;
+    transition: min-height 0.4s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.auth-panel {
+    padding: 1.5rem 2rem 1.8rem;
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.18, 1), opacity 0.3s ease;
+}
+
+/* Login panel – visible by default */
+.auth-panel--login {
+    position: relative;
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Register panel – hidden to the right */
+.auth-panel--register {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Switch animations */
+.auth-panel--login.slide-out {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.auth-panel--register.slide-in {
+    position: relative;
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ── Header inside panel ── */
+.auth-panel-header {
+    margin-bottom: 1.2rem;
+    padding-right: 2rem; /* avoid overlap with close btn */
+}
+
+.auth-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #033940;
+    margin-bottom: 0.15rem;
+}
+
+.auth-subheading {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* ── Success banner ── */
+.auth-success {
+    background: rgba(27, 203, 226, 0.1);
+    border: 1px solid #1bcbe2;
+    border-radius: 6px;
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+    color: #033940;
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.auth-success i { color: #1bcbe2; }
+
+/* ── Form groups ── */
+.auth-form-group {
+    margin-bottom: 0.9rem;
+}
+
+.auth-form-group label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #444;
+    margin-bottom: 0.28rem;
+    cursor: default;
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+}
+
+.auth-input-wrap {
+    position: relative;
+}
+
+.auth-input-wrap > i {
+    position: absolute;
+    left: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ccc;
+    font-size: 0.85rem;
+    pointer-events: none;
+    transition: color 0.2s ease;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 0.6rem 2.2rem 0.6rem 2.2rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    background: #fafafa;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    margin: 0;
+}
+
+.auth-input:focus {
+    border-color: #1bcbe2;
+    box-shadow: 0 0 0 3px rgba(27, 203, 226, 0.12);
+    background: #fff;
+}
+
+.auth-input-wrap:focus-within > i { color: #1bcbe2; }
+
+.auth-input.error { border-color: #e74c3c; }
+
+/* Password eye toggle */
+.auth-pw-toggle {
+    position: absolute;
+    right: 0.7rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #bbb;
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s;
+}
+.auth-pw-toggle:hover { color: #1bcbe2; }
+
+/* Error messages */
+.auth-error-msg {
+    color: #e74c3c;
+    font-size: 0.74rem;
+    margin-top: 0.2rem;
+    min-height: 0.9em;
+    display: block;
+}
+
+/* Two-column row (first/last name) */
+.auth-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+}
+
+/* Remember me + Forgot password row */
+.auth-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+}
+
+.auth-remember {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: #555;
+    cursor: pointer;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+}
+
+.auth-remember input[type="checkbox"] {
+    accent-color: #1bcbe2;
+    width: 13px;
+    height: 13px;
+    margin: 0;
+}
+
+.auth-forgot {
+    color: #1bcbe2;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.8rem;
+    transition: color 0.2s;
+}
+.auth-forgot:hover { color: #033940; }
+
+/* Submit button – matches original .btn style */
+.auth-submit-btn {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    background: #1bcbe2;
+    color: #fff;
+    border: 1px solid rgb(7, 3, 127);
+    border-radius: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.auth-submit-btn:hover {
+    background: rgba(0, 234, 255, 0.2);
+    color: #033940;
+}
+
+.auth-submit-btn:active { transform: scale(0.98); }
+
+/* Divider */
+.auth-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.8rem;
+    color: #ccc;
+    font-size: 0.75rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+
+/* Social buttons row */
+.auth-social {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.auth-social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #444;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.auth-social-btn:hover {
+    border-color: #1bcbe2;
+    background: #f0fdff;
+}
+
+.auth-social-btn i { font-size: 0.95rem; }
+.auth-social-btn .fa-google    { color: #EA4335; }
+.auth-social-btn .fa-facebook-f { color: #1877F2; }
+
+/* Switch link (Login ↔ Register) */
+.auth-switch {
+    text-align: center;
+    font-size: 0.82rem;
+    color: #666;
+}
+
+.auth-switch a {
+    color: #1bcbe2;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.auth-switch a:hover { color: #033940; }
+
+/* Terms text in register */
+.auth-terms {
+    font-size: 0.74rem;
+    color: #999;
+    text-align: center;
+    margin-top: -0.3rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+}
+
+.auth-terms a {
+    color: #1bcbe2;
+    text-decoration: none;
+}
+
+/* Password strength bar */
+.pw-strength {
+    height: 3px;
+    border-radius: 2px;
+    margin-top: 0.3rem;
+    background: #eee;
+    overflow: hidden;
+}
+
+.pw-strength-bar {
+    height: 100%;
+    width: 0;
+    border-radius: 2px;
+    transition: width 0.4s ease, background-color 0.4s ease;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+    .auth-panel {
+        padding: 1.2rem 1.4rem 1.5rem;
+    }
+
+    .auth-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-social {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-heading {
+        font-size: 1.3rem;
+    }
+}
+
+/* User Profile Menu in Header */
+.user-profile-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-display-btn {
+    background: rgba(27, 203, 226, 0.1);
+    border: 1px solid rgba(27, 203, 226, 0.3);
+    color: inherit;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.profile-display-btn:hover {
+    background: rgba(27, 203, 226, 0.15);
+    border-color: #1bcbe2;
+}
+
+/* Header right elements color adjustment based on dark/light context */
+header .right .profile-display-btn {
+    color: #333;
+}
+
+.home header .right .profile-display-btn,
+.hero-section header .right .profile-display-btn,
+section.home header .right .profile-display-btn {
+    color: #fff;
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    width: 140px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    z-index: 100;
+}
+
+.profile-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.profile-dropdown a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    color: #444;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.2s, color 0.2s;
+}
+
+.profile-dropdown a:hover {
+    background: #f0fdff;
+    color: #1bcbe2;
+}

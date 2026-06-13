@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Gallery – Saboo's Retreat. Explore stunning imagery of our premium luxury villas in Alibaug, Karjat, Lonavala, Mahabaleshwar, and Panchgani, Maharashtra.">
+    <title>Gallery – SABOO'S RETREAT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="Assests/CSS/gallery.css">
+    <link rel="stylesheet" href="Assests/CSS/auth.css">
+</head>
+
+<body oncontextmenu="return false;">
+
+    <!-- Mobile Nav Drawer -->
+    <nav class="mobile-nav" id="mobile-nav">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT US</a></li>
+            <li><a href="sc.html">STAYCATIONS</a></li>
+            <li><a href="gallery.html">GALLERY</a></li>
+            <li><a href="contact.html">CONTACT ME</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header / Hero -->
+    <section class="hero-section" id="gallery-hero">
+        <header>
+            <div class="left">
+                <img src="Assests/Images/logo.png" alt="Saboo's Retreat Logo">
+            </div>
+            <nav>
+                <div class="middle">
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="about.html">ABOUT US</a></li>
+                        <li><a href="sc.html">STAYCATIONS</a></li>
+                        <li><a href="gallery.html" class="active">GALLERY</a></li>
+                        <li><a href="contact.html">CONTACT ME</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="right">
+                <i class="fas fa-bars hamburger" id="menu-btn"></i>
+                <i class="fas fa-user" id="login-btn"></i>
+            </div>
+        </header>
+
+        <div class="hero-content fade-up">
+            <h2 class="hero-subtitle">Visual Journey</h2>
+            <h1 class="hero-title">Explore Our Villa Collection</h1>
+            <p class="hero-desc">Take a visual journey through our premium villas and breathtaking destinations across
+                Maharashtra.</p>
+        </div>
+        <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section" id="gallery-filter">
+        <div class="filter-heading">
+            <span class="section-tag">BROWSE</span>
+            <h2 class="section-heading">Filter by Destination</h2>
+        </div>
+        <div class="filter-btns">
+            <button class="filter-btn active" data-filter="all" id="filter-all">ALL</button>
+            <button class="filter-btn" data-filter="alibaug" id="filter-alibaug">ALIBAUG</button>
+            <button class="filter-btn" data-filter="karjat" id="filter-karjat">KARJAT</button>
+            <button class="filter-btn" data-filter="lonavala" id="filter-lonavala">LONAVALA</button>
+            <button class="filter-btn" data-filter="mahabaleshwar" id="filter-mahabaleshwar">MAHABALESHWAR</button>
+            <button class="filter-btn" data-filter="panchgani" id="filter-panchgani">PANCHGANI</button>
+        </div>
+    </section>
+
+    <!-- Gallery Card Grid (3 per row, 4 rows = 12 cards) -->
+    <section class="gallery-grid-section" id="gallery-masonry">
+        <div class="gallery-grid" id="gallery-grid">
+
+            <!-- Row 1 -->
+            <div class="gallery-card" data-category="alibaug" id="gal-a1">
+                <img src="Assests/Images/a1.png" alt="Alibaug Beach View" loading="lazy">
+                <div class="gallery-card-overlay">
+                    <span class="gallery-tag"><i class="fas fa-map-marker-alt"></i> Alibaug</span>
+                    <p>Beach View</p>
+                </div>
+            </div>
+            <div class="gallery-card" data-category="alibaug" id="gal-a2">
+                <img src="Assests/Images/a2.png" alt="Alibaug Resort" loading="lazy">
+                <div class="gallery-card-overlay">
+                    <span class="gallery-tag"><i class="fas fa-map-marker-alt"></i> Alibaug</span>
+                    <p>Tropical Forest Resort</p>
+                </div>
+            </div>
+            <div class="gallery-card" data-category="alibaug" id="gal-a3">
+                <img src="Assests/Images/a3.png" alt="Alibaug Pool" loading="lazy">
+                <div class="gallery-card-overlay">
+                    <span class="gallery-tag"><i class="fas fa-map-marker-alt"></i> Alibaug</span>
+                    <p>Private Pool Experience</p>
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="gallery-card" data-category="alibaug" id="gal-a4">
+                <img src="Assests/Images/a5.png" alt="Alibaug Coastline" loading="lazy">
+                <div class="gallery-card-overlay">
+                    <span class="gallery-tag"><i class="fas fa-map-marker-alt"></i> Alibaug</span>
+                    <p>Scenic Coastline View</p>
+                </div>
+            </div>
+            <div class="gallery-card" data-category="karjat" id="gal-k1">
+                <img src="Assests/Images/k.png" alt="Karjat Villa" loading="lazy">
+                <div class="gallery-card-overlay">
+                    <span class="gallery-tag"><i class="fas fa-map-marker-alt"></i> Karjat</span>
+                    <p>Riverside Retreat</p>
+                </div>
+            </div>
+            <div class="gallery-card" data-category="karjat" id="gal-k2">
+                <img src="Assests/Images/k2.png" alt="Karjat Mountains" loading="lazy">
+                <div class="gallery-card-overlay">
+                    <span class="gallery-tag"><i class="fas fa-map-marker-alt"></i> Karjat</span>
+                    <p>Sahyadri Mountain Views</p>
+                </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="gallery-card" data-category="karjat" id="gal-k3">
+                <img src="Assests/Images/karjat.png" alt="Karjat Landscape" loading="lazy">
+                <div class="gallery-card-overlay">
+                    <span class="gallery-tag"><i class="fas fa-map-marker-alt"></i> Karjat</span>
+                    <p>Valley Estate</p>
+                </div>
+            </div>
+            <div class="gallery-card" data-category="lonavala" id="gal-l1">
+                <img src="Assests/Images/l.jpg" alt="Lonavala Valley" loading="lazy">
+                <div class="gallery-card-overlay">
+                    <span class="gallery-tag"><i class="fas fa-map-marker-alt"></i> Lonavala</span>
+                    <p>Misty Valley View</p>
+                </div>
+            </div>
+            <div class="gallery-card" data-category="lonavala" id="gal-l2">
+                <img src="Assests/Images/lonavla.png" alt="Lonavala Landscape" loading="lazy">
+                <div class="gallery-card-overlay">
+                    <span class="gallery-tag"><i class="fas fa-map-marker-alt"></i> Lonavala</span>
+                    <p>Ghats &amp; Waterfalls</p>
+                </div>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="gallery-card" data-category="mahabaleshwar" id="gal-m1">
+                <img src="Assests/Images/m.png" alt="Mahabaleshwar Villa" loading="lazy">
+                <div class="gallery-card-overlay">
+                    <span class="gallery-tag"><i class="fas fa-map-marker-alt"></i> Mahabaleshwar</span>
+                    <p>Hill Station Estate</p>
+                </div>
+            </div>
+            <div class="gallery-card" data-category="mahabaleshwar" id="gal-m2">
+                <img src="Assests/Images/mahableshwar.jpg" alt="Mahabaleshwar View" loading="lazy">
+                <div class="gallery-card-overlay">
+                    <span class="gallery-tag"><i class="fas fa-map-marker-alt"></i> Mahabaleshwar</span>
+                    <p>Strawberry Farm Views</p>
+                </div>
+            </div>
+            <div class="gallery-card" data-category="panchgani" id="gal-p1">
+                <img src="Assests/Images/p.png" alt="Panchgani Villa" loading="lazy">
+                <div class="gallery-card-overlay">
+                    <span class="gallery-tag"><i class="fas fa-map-marker-alt"></i> Panchgani</span>
+                    <p>Table Land Estate</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Centered Image Popup (not fullscreen) -->
+    <div class="img-popup-bg" id="img-popup-bg"></div>
+    <div class="img-popup" id="img-popup">
+        <button class="img-popup-close" id="img-popup-close"><i class="fas fa-times"></i></button>
+        <img id="img-popup-img" src="" alt="">
+        <div class="img-popup-caption" id="img-popup-caption"></div>
+    </div>
+
+    <!-- Video Showcase -->
+    <section class="video-section" id="video-showcase">
+        <div class="video-heading">
+            <span class="section-tag">TOUR</span>
+            <h2 class="section-heading">Virtual Villa Tours</h2>
+            <p class="section-sub">Explore our villas through immersive video tours before you book.</p>
+        </div>
+        <div class="video-grid">
+            <div class="video-card" id="vid-1">
+                <div class="video-thumb">
+                    <img src="Assests/Images/a3.png" alt="Alibaug Villa Tour">
+                    <div class="video-overlay">
+                        <button class="play-btn" data-video="Assests/Images/svid2.mp4" id="play-vid-1">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <span class="masonry-tag"><i class="fas fa-map-marker-alt"></i> Alibaug</span>
+                    <h3>Outpost Alibaug Tour</h3>
+                </div>
+            </div>
+            <div class="video-card video-card-large" id="vid-2">
+                <div class="video-thumb">
+                    <img src="Assests/Images/a5.png" alt="Premium Villa Tour">
+                    <div class="video-overlay">
+                        <button class="play-btn" data-video="Assests/Images/svid4.mp4" id="play-vid-2">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <span class="masonry-tag"><i class="fas fa-map-marker-alt"></i> All Destinations</span>
+                    <h3>Premium Villa Showcase</h3>
+                </div>
+            </div>
+            <div class="video-card" id="vid-3">
+                <div class="video-thumb">
+                    <img src="Assests/Images/m.png" alt="Mahabaleshwar Tour">
+                    <div class="video-overlay">
+                        <button class="play-btn" data-video="Assests/Images/svid2.mp4" id="play-vid-3">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <span class="masonry-tag"><i class="fas fa-map-marker-alt"></i> Mahabaleshwar</span>
+                    <h3>Summit Estate Tour</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="video-modal">
+        <div class="video-modal-inner">
+            <button class="video-modal-close" id="video-modal-close"><i class="fas fa-times"></i></button>
+            <video id="modal-video" controls playsinline>
+                <source src="" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="lightbox-bg" id="video-bg"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="containers">
+            <div class="sec aboutus">
+                <h2>ABOUT US</h2>
+                <p>Saboo's Retreat specializes in handpicked luxury villas across Maharashtra's most loved destinations
+                    — delivering unforgettable experiences with every stay.</p>
+                <ul class="sci1">
+                    <li><a href="#" id="foot-fb"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="#" id="foot-tw"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#" id="foot-ig"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="#" id="foot-yt"><i class="fa-brands fa-youtube"></i></a></li>
+                </ul>
+            </div>
+            <div class="sec quicklinks">
+                <h2>SUPPORT</h2>
+                <ul>
+                    <li><a href="contact.html#faq">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="sec quicklinks">
+                <h2>STAYCATIONS</h2>
+                <ul>
+                    <li><a href="#">Karjat</a></li>
+                    <li><a href="#">Mahabaleshwar</a></li>
+                    <li><a href="#">Lonavala</a></li>
+                    <li><a href="alibaug.html">Alibaug</a></li>
+                    <li><a href="#">Panchgani</a></li>
+                </ul>
+            </div>
+            <div class="sec contact1">
+                <h2>CONTACT US</h2>
+                <ul class="info">
+                    <li>
+                        <span><i class="fa-solid fa-phone"></i></span>
+                        <p><a href="tel:+919876543210">+91 987 654 3210</a></p>
+                    </li>
+                    <li>
+                        <span><i class="fa-solid fa-envelope"></i></span>
+                        <p><a href="mailto:saboosretreat@gmail.com">saboosretreat@gmail.com</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright">
+        <i id="up" class="fas fa-arrow-circle-up" onclick="scrollWin(0,-6000)"></i>
+        <p>Copyright @2023 Saboo's Retreat. All Rights Reserved</p>
+    </div>
+
+    <script src="Assests/JS/gallery.js"></script>
+    <script src="Assests/JS/auth.js" defer></script>
+</body>
+
+</html>
