@@ -113,18 +113,18 @@ nav {
     height: 90px;
 }
 
-nav ul {
+header nav ul {
     display: flex;
     justify-content: center;
 }
 
-nav ul li {
+header nav ul li {
     list-style: none;
     margin: 0 25px;
     position: relative;
 }
 
-nav ul li a {
+header nav ul li a {
     text-decoration: none;
     color: rgb(255, 255, 255);
     font-size: 1.05rem;
@@ -132,7 +132,7 @@ nav ul li a {
     font-weight: 500;
 }
 
-nav ul li::after {
+header nav ul li::after {
     content: '';
     height: 3px;
     width: 0;
@@ -143,7 +143,7 @@ nav ul li::after {
     transition: 0.5s;
 }
 
-nav ul li:hover::after {
+header nav ul li:hover::after {
     width: 100%;
 }
 
