@@ -15,18 +15,18 @@ html {
     background: #e6e4e49c;
     scroll-behavior: smooth;
     scroll-padding: 5rem;
+}
 
-    &::-webkit-scrollbar {
-        width: 0.5rem;
-    }
+html::-webkit-scrollbar {
+    width: 0.5rem;
+}
 
-    &::-webkit-scrollbar-track {
-        background: white;
-    }
+html::-webkit-scrollbar-track {
+    background: white;
+}
 
-    &::-webkit-scrollbar-thumb {
-        background: rgb(150, 180, 202);
-    }
+html::-webkit-scrollbar-thumb {
+    background: rgb(150, 180, 202);
 }
 
 .m {
@@ -331,6 +331,8 @@ mid {
 }
 
 mid img {
+    max-width: 100%;
+    height: auto;
     border-radius: 10rem;
 }
 
@@ -1300,16 +1302,15 @@ footer .containers .contact1 .info li a {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
-    .left {
-        margin-right: 8rem;
-    }
-
-    .right i {
-        margin-left: 5rem;
-    }
+    /* Header spacing is managed by flex justify-content: space-between */
 
     footer .container {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .overview {
+        margin: 2rem auto;
+        width: 90%;
     }
 }
 
@@ -1337,10 +1338,81 @@ footer .containers .contact1 .info li a {
     footer .container {
         grid-template-columns: 1fr 1fr;
     }
+
+    .overview {
+        margin: 1.5rem auto;
+        width: 90%;
+    }
+
+    .counter {
+        height: auto;
+        padding: 3rem 0;
+    }
+
+    .counter .grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding-top: 0;
+        gap: 2rem;
+    }
+
+    .m {
+        height: 35vh;
+        min-height: 250px;
+    }
+
+    .m h1 {
+        font-size: 4rem;
+        background-position: -500px 0;
+    }
+
+    mid img {
+        border-radius: 2rem;
+    }
+
+    .name h1, .sheading h1, .pheading h1, .title h1 {
+        font-size: 50px;
+    }
+
+    .review .review-row {
+        margin: 0;
+    }
 }
 
 @media (max-width: 480px) {
     footer .container {
         grid-template-columns: 1fr;
+    }
+
+    .overview {
+        margin: 1rem auto;
+        width: 95%;
+        padding: 15px 10px;
+    }
+
+    .counter .grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .scontainer .sleft {
+        grid-template-columns: 1fr;
+    }
+
+    .sleft .sbox {
+        height: auto;
+        padding: 20px 10px;
+    }
+
+    .m h1 {
+        font-size: 3rem;
+        background-position: -300px 0;
+    }
+
+    .name h1, .sheading h1, .pheading h1, .title h1 {
+        font-size: 35px;
+    }
+
+    .wrapper {
+        gap: 15px;
     }
 }

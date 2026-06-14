@@ -9,18 +9,18 @@ html {
     overflow-x: hidden;
     scroll-behavior: smooth;
     scroll-padding: 5rem;
+}
 
-    &::-webkit-scrollbar {
-        width: 0.5rem;
-    }
+html::-webkit-scrollbar {
+    width: 0.5rem;
+}
 
-    &::-webkit-scrollbar-track {
-        background: white;
-    }
+html::-webkit-scrollbar-track {
+    background: white;
+}
 
-    &::-webkit-scrollbar-thumb {
-        background: rgb(150, 180, 202);
-    }
+html::-webkit-scrollbar-thumb {
+    background: rgb(150, 180, 202);
 }
 
 body {
@@ -119,11 +119,12 @@ nav ul li:hover::after {
     background-image: url('../Images/search.png');
     background-position: 14px 12px;
     background-repeat: no-repeat;
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     border-radius: 20px;
     font-size: 16px;
     padding: 14px 20px 12px 45px;
-    border: 1rem;
+    border: none;
     border-bottom: 1px solid #ddd;
 }
 
@@ -134,19 +135,22 @@ nav ul li:hover::after {
 .search {
     position: relative;
     display: inline-block;
+    width: 100%;
+    max-width: 500px;
 }
 
 .search-content {
-    margin-top: -0.8rem;
-    margin-left: 12rem;
+    margin-top: 5px;
+    margin-left: 0;
     border-radius: 20px;
     display: none;
     position: absolute;
     background-color: #f6f6f6;
-    width: 470px;
+    width: 100%;
+    left: 0;
     overflow: auto;
     border: 1px solid #ddd;
-    z-index: 1;
+    z-index: 10;
 }
 
 .search-content a {
@@ -655,13 +659,7 @@ footer .container .contact1 .info1 li a {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
-    .left {
-        margin-right: 8rem;
-    }
-
-    .right i {
-        margin-left: 5rem;
-    }
+    /* Header spacing is managed by flex justify-content: space-between */
 }
 
 @media (max-width: 768px) {
@@ -686,12 +684,22 @@ footer .container .contact1 .info1 li a {
     }
 
     .carousle .text h1 {
-        font-size: 2rem;
+        font-size: 3.5rem;
+    }
+
+    .carousle .text p {
+        font-size: 1.25rem;
+        margin-top: 0;
     }
 
     .mid {
         flex-direction: column;
         padding: 2rem 1rem;
+    }
+
+    .scontainer {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
     }
 
     .cardgrid {
@@ -710,7 +718,15 @@ footer .container .contact1 .info1 li a {
 
 @media (max-width: 480px) {
     .carousle .text h1 {
-        font-size: 1.4rem;
+        font-size: 2.5rem;
+    }
+
+    .carousle .text p {
+        font-size: 1rem;
+    }
+
+    .scontainer {
+        grid-template-columns: 1fr;
     }
 
     .cardgrid {

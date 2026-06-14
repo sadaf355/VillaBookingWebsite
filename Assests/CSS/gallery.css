@@ -811,13 +811,7 @@ footer .containers .contact1 .info li a:hover {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
-  .left {
-    margin-right: 8rem;
-  }
-
-  .right i {
-    margin-left: 5rem;
-  }
+  /* Header spacing is managed by flex justify-content: space-between */
 
   .gallery-grid-section,
   .video-section,

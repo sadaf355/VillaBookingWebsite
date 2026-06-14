@@ -823,13 +823,7 @@ footer .containers .contact1 .info li a:hover {
         bottom: -1rem;
     }
 
-    .left {
-        margin-right: 8rem;
-    }
-
-    .right i {
-        margin-left: 5rem;
-    }
+    /* Header spacing is managed by flex justify-content: space-between */
 
     .why-section,
     .story-section {
@@ -884,6 +878,10 @@ footer .containers .contact1 .info li a:hover {
         margin: 0;
     }
 
+    .review .heading h1 {
+        font-size: 50px;
+    }
+
     .counter h1 {
         font-size: 35px;
     }
@@ -897,6 +895,10 @@ footer .containers .contact1 .info li a:hover {
         grid-template-columns: repeat(2, 1fr);
         padding-top: 0;
         gap: 2rem;
+    }
+
+    .cta-content h1 {
+        font-size: 50px;
     }
 
     .cta-content h2 {
@@ -931,7 +933,7 @@ footer .containers .contact1 .info li a:hover {
     }
 
     .counter .grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
 
     .story-features {
@@ -940,5 +942,19 @@ footer .containers .contact1 .info li a:hover {
 
     .review .review-row {
         grid-template-columns: 1fr;
+    }
+
+    .review .heading h1 {
+        font-size: 35px;
+    }
+
+    .cta-content h1 {
+        font-size: 35px;
+    }
+
+    .story-badge {
+        padding: 1rem;
+        bottom: -0.5rem;
+        right: 0.5rem;
     }
 }
