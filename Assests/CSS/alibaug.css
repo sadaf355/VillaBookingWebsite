@@ -1315,7 +1315,7 @@ footer .containers .contact1 .info li a {
 }
 
 @media (max-width: 768px) {
-    nav ul {
+    header nav ul {
         display: none;
     }
 

@@ -663,7 +663,7 @@ footer .container .contact1 .info1 li a {
 }
 
 @media (max-width: 768px) {
-    nav ul {
+    header nav ul {
         display: none;
     }
 
