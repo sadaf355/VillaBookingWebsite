@@ -86,7 +86,7 @@ app.post('/api/auth/login', async (req, res) => {
     // Check if user exists
     const result = await db.query('SELECT * FROM users WHERE email = $1', [email]);
     if (result.rows.length === 0) {
-      return res.status(400).json({ error: 'Invalid email or password.' });
+      return res.status(400).json({ error: 'User not registered. Please register first.' });
     }
 
     const user = result.rows[0];
